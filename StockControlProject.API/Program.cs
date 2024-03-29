@@ -19,6 +19,12 @@ namespace StockControlProject.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //Looptan çýkmak için
+            builder.Services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+
             //Context
             builder.Services.AddDbContext<StockControlContext>();
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StockControlProject.Repositories.Context;
 
@@ -11,9 +12,10 @@ using StockControlProject.Repositories.Context;
 namespace StockControlProject.Repositories.Migrations
 {
     [DbContext(typeof(StockControlContext))]
-    partial class StockControlContextModelSnapshot : ModelSnapshot
+    [Migration("20240329114354_ddvva")]
+    partial class ddvva
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -58,6 +58,38 @@ namespace StockControlProject.API.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult KategoriSil(int id)
+        {
+            var category = _service.GetById(id);
+            if (category is null) return NotFound();
+            try
+            {
+                _service.Remove(category);
+                return Ok("Kategori Silindi");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult KategorileriAktiflestir(int id)
+        {
+            var category = _service.GetById(id);
+            if (category is null) return NotFound();
+            try
+            {
+                _service.Activate(id);
+                return Ok(category);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
         private bool CategoryExist(int id)
         {
             return _service.Any(x => x.Id == id);
